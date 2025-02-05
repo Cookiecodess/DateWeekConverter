@@ -67,7 +67,7 @@ $ which python3
 There's a chance that your python3 path is exactly the same as the one already written in ```start.py```. 
 If so, you're done and ready to start using the program. If not, change the path to your python3 path. 
 **DO NOT REMOVE THE SHEBANG (```#!```).** It's the symbol that tells your shell interpreter that this 
-script should be executed using Python3. Also note that there is a backslash (```\```) at the beginning 
+script should be executed using Python3. Also note that there is a slash (```/```) at the beginning 
 of the path, right after the shebang.
 
 ```python3
