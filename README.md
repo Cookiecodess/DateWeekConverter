@@ -11,7 +11,7 @@ Hence this simple Python program is born. It contains three core functionalities
 2. Convert a given date to a Week Number 
 3. Convert a given Week Number (e.g. Week 7) and Day Number (Day 1 for Monday, Day 7 for Sunday) to a date
 
-## Installation and Usage
+## Installation
 
 ### Linux/MacOS:
 
@@ -45,7 +45,7 @@ python3 start.py # This requires Python 3.10+.
 #python3 start-3.7.py # This requires Python 3.7+. Both versions work completely the same. Use this if your Python3 version is lower than 3.10
 ```
 
-## First use
+## Before use
 
 IMPORTANT: This is for Linux/MacOS users. Windows users can ignore this section.
 
@@ -75,6 +75,35 @@ of the path, right after the shebang.
 
 #!/usr/bin/python3 # This is correct
 ```
+
+## Usage/Configuration
+
+When you run ```start.py``` or ```start-3.7.py``` for the first time, 
+you should encounter this message:
+
+```
+You haven't set the first day of the semester yet. Please enter the date of the first day of your semester (i.e. Monday of Week 1) in the format DD-MM-YYYY:
+```
+
+Enter the date of the first day of the semester (I'm speaking in the context of the use case I built this for, but you can use it for whatever you want -- maybe you want to mark the start of a new journey and want to know how many weeks have elapsed going into the future). A new ```.txt``` file will be generated in the same directory, in which the entered date will be recorded. By default, the file is named ```dwc_firstday.txt``` by default. For whatever reason you wish to change it, you may do so by changing the value of the constant ```FIRSTDATE_FILENAME``` in the Python scripts. 
+
+Do not move or rename the file that stores the date of the first day if you are not familiar with Python. If you wish to rename it after setting the date, make sure to also edit the constant ```FIRSTDATE_FILENAME``` accordingly in the Python scripts so they don't break. Moving the file is also okay *if* you're familiar with how paths are handled in Python and tweak the constant accordingly.
+
+### Configuring the date format
+
+Only one date format is used throughout the program. The default date format in use is ```DD-MM-YYYY``` (e.g. ```03-10-2025```). If you don't like this at all, you can change the constant ```DATE_FORMAT``` in the Python scripts.
+
+The default value of ```DATE_FORMAT```:
+
+```python3
+DATE_FORMAT = "%d-%m-%Y" 
+```
+
+As you can see, it's a little unintuitive. Fortunately, there's a neat table that you can look up here: [Python Datetime - W3Schools](https://www.w3schools.com/python/python_datetime.asp)
+
+### The rest
+
+The rest is, I think, pretty intuitive, and you should be able to figure out how to use the program on your own. I hope you enjoy!
 
 
 

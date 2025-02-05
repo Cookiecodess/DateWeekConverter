@@ -7,7 +7,7 @@
 
 from datetime import datetime, timedelta
 
-firstdate_filename = "date_firstday.txt" # You can change this to whatever name you like
+firstdate_filename = "dwc_firstday.txt" # You can change this to whatever name you like
 date_format = "%d-%m-%Y"                 # You can change this to whatever format you like
 
 # Some base functions

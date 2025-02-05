@@ -6,17 +6,17 @@
 
 from datetime import datetime, timedelta
 
-firstdate_filename = "date_firstday.txt" # You can change this to whatever name you like
-date_format = "%d-%m-%Y"                 # You can change this to whatever format you like
+FIRSTDATE_FILENAME = "dwc_firstday.txt" # You can change this to whatever name you like
+DATE_FORMAT = "%d-%m-%Y"                # You can change this to whatever format you like
 
 # Some base functions
 def parse_date(date_str: str) -> datetime:
-    return datetime.strptime(date_str, date_format)
+    return datetime.strptime(date_str, DATE_FORMAT)
 
 def tostring_date(date_obj: datetime) -> str:
     if date_obj is None:
         return "date_obj is None"
-    return date_obj.strftime(date_format)
+    return date_obj.strftime(DATE_FORMAT)
 
 def getWeekday(date_obj: datetime) -> str:
     return date_obj.strftime("%A")
@@ -72,9 +72,9 @@ def editFirstDate() -> None:
             confirm = input(f"Confirm that new firstdate is {new_firstdate_str}? (y/n) ")
             if confirm.strip().lower() == "y":
                 # User has provided a correctly formatted date and confirmed the edit - edit is gone through with, operation is completed.
-                with open(firstdate_filename, "w") as f:
+                with open(FIRSTDATE_FILENAME, "w") as f:
                     f.write(new_firstdate_str)
-                with open(firstdate_filename, "r") as f:
+                with open(FIRSTDATE_FILENAME, "r") as f:
                     print(f"\nSuccessfully modified. New firstdate value: {f.read()}")
                 return
             elif confirm.lower() == "n":
@@ -96,7 +96,7 @@ def checkWeekNumber() -> None:
             print("\nInvalid date format. Please try again.")
             continue
         date_obj = date_obj[0] # Assign the datetime object contained in the list that is date_obj, to itself, so now date_obj is a datetime object instead of a list.
-        with open(firstdate_filename, "r") as f:
+        with open(FIRSTDATE_FILENAME, "r") as f:
             firstdate: datetime = parse_date(f.read())
             if date_obj < firstdate:
                 f.seek(0) # Reset the file pointer to the beginning 
@@ -166,11 +166,11 @@ def main() -> None:
 # Check if file that stores date of first day of semester exists.
 try:
     # If file exists, read first date.
-    with open(firstdate_filename, "r") as f:
+    with open(FIRSTDATE_FILENAME, "r") as f:
         firstdate: datetime = parse_date(f.read())
 except FileNotFoundError:
     # If file doesn’t exist, create it and prompt user to input first date.
-    with open(firstdate_filename, "w") as f:
+    with open(FIRSTDATE_FILENAME, "w") as f:
         firstdate_str = input("You haven't set the first day of the semester yet. Please enter the date of the first day of your semester (i.e. Monday of Week 1) in the format DD-MM-YYYY: ")
         f.write(firstdate_str)
         firstdate: datetime = parse_date(firstdate_str)
