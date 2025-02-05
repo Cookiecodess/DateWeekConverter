@@ -1,11 +1,13 @@
 #!/home/colacookies/.pyenv/shims/python3 
-# rmb to change this ^^^ to /usr/bin/python3 when switching to iSH
+# Change the above path to the path where python3 is stored on your machine. (Tip: type "which python3" into your shell)
+# Do NOT remove the "#!"
 
+# Requires Python 3.10+
 
 from datetime import datetime, timedelta
 
-firstdate_filename = "dwc_firstday.txt"
-date_format = "%d-%m-%Y"
+firstdate_filename = "date_firstday.txt" # You can change this to whatever name you like
+date_format = "%d-%m-%Y"                 # You can change this to whatever format you like
 
 # Some base functions
 def parse_date(date_str: str) -> datetime:
@@ -132,7 +134,7 @@ def main() -> None:
         while True:
             option = int(input("Enter option: "))
             if option == 0:
-                print("Quitting dateWeekConverter made by cookie. Have a nice day :3")
+                print("Quitting DateWeekConverter made by cookie. Have a nice day :3")
                 return
             if not (option >= 1 and option <= 3):
                 print("\nInvalid option. Please try again.")
@@ -156,7 +158,7 @@ try:
     # If file exists, read first date.
     with open(firstdate_filename, "r") as f:
         firstdate: datetime = parse_date(f.read())
-except:
+except FileNotFoundError:
     # If file doesn’t exist, create it and prompt user to input first date.
     with open(firstdate_filename, "w") as f:
         firstdate_str = input("You haven't set the first day of the semester yet. Please enter the date of the first day of your semester (i.e. Monday of Week 1) in the format DD-MM-YYYY: ")
