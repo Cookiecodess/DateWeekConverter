@@ -1,4 +1,4 @@
-#!/home/colacookies/.pyenv/shims/python3 
+#!/usr/bin/python3 
 # Change the above path to the path where python3 is stored on your machine. (Tip: type "which python3" into your shell)
 # Do NOT remove the "#!"
 
