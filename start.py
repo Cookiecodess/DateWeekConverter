@@ -138,12 +138,17 @@ def main() -> None:
         displayMenu()
         while True:
             option = int(input("Enter option: "))
+            if not option.isdigit():
+                print("\nInvalid option. Please try again.")
+                continue
+            option = int(option)
+
             if option == 0:
                 print("Quitting DateWeekConverter made by cookie. Have a nice day :3")
                 return
             if not (option >= 1 and option <= 3):
                 print("\nInvalid option. Please try again.")
-                continue
+                continue            
             break
 
         # print() # Print an empty line

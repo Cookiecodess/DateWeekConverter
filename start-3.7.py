@@ -138,7 +138,12 @@ def main() -> None:
     while True:
         displayMenu()
         while True:
-            option = int(input("Enter option: "))
+            option = input("Enter option: ")
+            if not option.isdigit():
+                print("\nInvalid option. Please try again.")
+                continue
+            option = int(option)
+            
             if option == 0:
                 print("Quitting DateWeekConverter made by cookie. Have a nice day :3")
                 return
@@ -156,6 +161,7 @@ def main() -> None:
         elif option == 3:
             # Calculate date from given week number and day number
             checkDateFromWeekAndDay()
+            
 
 # Check if file that stores date of first day of semester exists.
 try:
