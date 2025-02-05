@@ -2,7 +2,7 @@
 # Change the above path to the path where python3 is stored on your machine. (Tip: type "which python3" into your shell)
 # Do NOT remove the "#!"
 
-# Requires 3.9+
+# Requires 3.7+
 
 from datetime import datetime, timedelta
 
