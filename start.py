@@ -137,7 +137,7 @@ def main() -> None:
     while True:
         displayMenu()
         while True:
-            option = int(input("Enter option: "))
+            option = input("Enter option: ")
             if not option.isdigit():
                 print("\nInvalid option. Please try again.")
                 continue

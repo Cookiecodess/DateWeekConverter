@@ -134,7 +134,7 @@ def checkDateFromWeekAndDay() -> None:
         print(f"\nWeek {week}, Day {day}\n{date_str}, {getWeekday(date_obj)}\n")
 
 
-def main() -> None:
+def main() -> None: 
     while True:
         displayMenu()
         while True:
