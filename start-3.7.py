@@ -3,6 +3,7 @@
 # Do NOT remove the "#!"
 
 # Requires 3.7+
+# This exists for backward compatibility
 
 from datetime import datetime, timedelta
 
@@ -89,7 +90,6 @@ def checkWeekNumber() -> None:
         print("\nCheck week number from a given date.")
         date_str = input("Enter a date in the DD-MM-YYYY format (leave blank to quit): ")
         if date_str == "":
-            print("\nQuit date-to-week converter.")
             return
 
         date_obj = [None]
@@ -97,6 +97,12 @@ def checkWeekNumber() -> None:
             print("\nInvalid date format. Please try again.")
             continue
         date_obj = date_obj[0] # Assign the datetime object contained in the list that is date_obj, to itself, so now date_obj is a datetime object instead of a list.
+        with open(firstdate_filename, "r") as f:
+            firstdate: datetime = parse_date(f.read())
+            if date_obj < firstdate:
+                f.seek(0) # Reset the file pointer to the beginning 
+                print(f"\nDate out of range: Given date should be later than or equal to the first day of the semester, which is currently set to: {f.read()}")
+                continue
         weeknum: int = getWeekFromDate(date_obj)
         print(f"\n{date_str} is a {getWeekday(date_obj)} in Week {weeknum}.")
 
