@@ -99,7 +99,7 @@ The default value of ```DATE_FORMAT```:
 DATE_FORMAT = "%d-%m-%Y" 
 ```
 
-As you can see, it's a little unintuitive. Fortunately, there's a neat table that you can look up here: [Python Datetime - W3Schools](https://www.w3schools.com/python/python_datetime.asp)
+As you can see, the format specifiers and what they signify are a little unintuitive. Fortunately, there's a neat table that you can look up here: [Python Datetime - W3Schools](https://www.w3schools.com/python/python_datetime.asp)
 
 ### The rest
 
