@@ -6,11 +6,21 @@
 # This exists for backward compatibility
 
 from datetime import datetime, timedelta
+import os
 
 firstdate_filename = "date_firstday.txt" # You can change this to whatever name you like
 date_format = "%d-%m-%Y"                 # You can change this to whatever format you like
 
 # Some base functions
+def cls() -> None:
+    # for windows    
+    if os.name == 'nt':
+        os.system('cls')
+
+    # for mac and linux (os.name is 'posix')
+    else:
+        os.system('clear')
+
 def parse_date(date_str: str) -> datetime:
     return datetime.strptime(date_str, date_format)
 
@@ -58,6 +68,7 @@ def displayMenu() -> None:
   0> Quit\n""")
 
 def editFirstDate() -> None:
+    cls()
     firstdate_str = tostring_date(firstdate)
     while True:
         print("\nCurrently, the firstdate value is " + firstdate_str + ".")
@@ -86,6 +97,7 @@ def editFirstDate() -> None:
                 print("\nInvalid selection. Please try again.")
 
 def checkWeekNumber() -> None:
+    cls()
     while True:
         print("\nCheck week number from a given date.")
         date_str = input("Enter a date in the DD-MM-YYYY format (leave blank to quit): ")
@@ -111,6 +123,7 @@ def checkWeekNumber() -> None:
             return
     
 def checkDateFromWeekAndDay() -> None:
+    cls()
     print("\nType a week number and a day number (1 for Monday, 7 for Sunday), converts to a date.")
     while True:
         week = input("Enter week number (leave blank to quit): ")
@@ -136,6 +149,7 @@ def checkDateFromWeekAndDay() -> None:
 
 def main() -> None:
     while True:
+        cls()
         displayMenu()
         while True:
             option = input("Enter option: ")
