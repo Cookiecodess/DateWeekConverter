@@ -2,23 +2,23 @@
 # Change the above path to the path where python3 is stored on your machine. (Tip: type "which python3" into your shell)
 # Do NOT remove the "#!"
 
-# Requires Python 3.10+
+# Requires 3.7+
 
 from datetime import datetime, timedelta
 import os
 
 FIRSTDATE_FILENAME = "dwc_firstday.txt" # You can change this to whatever name you like
-DATE_FORMAT = "%d-%m-%Y"                # You can change this to whatever format you like
+DATE_FORMAT = "%d-%m-%Y"                 # You can change this to whatever format you like
 
 # Some base functions
 def cls() -> None:
-    # for windows
+    # for windows    
     if os.name == 'nt':
         os.system('cls')
-    
+
     # for mac and linux (os.name is 'posix')
     else:
-        os.system('cl')
+        os.system('clear')
 
 def parse_date(date_str: str) -> datetime:
     return datetime.strptime(date_str, DATE_FORMAT)
@@ -97,9 +97,10 @@ def editFirstDate() -> None:
 
 def checkWeekNumber() -> None:
     cls()
+    print("\nCheck week number from a given date.")
     while True:
-        print("\nCheck week number from a given date.")
         date_str = input("Enter a date in the DD-MM-YYYY format (leave blank to quit): ")
+        # Exit to main menu
         if date_str == "":
             return
 
@@ -117,20 +118,23 @@ def checkWeekNumber() -> None:
         weeknum: int = getWeekFromDate(date_obj)
         print(f"\n{date_str} is a {getWeekday(date_obj)} in Week {weeknum}.")
 
-        again = input("Again? y for yes, anything else to quit: ")
-        if again.lower() != "y": 
-            return
+        # again = input("Again? y for yes, anything else to quit: ")
+        # if again.lower() != "y": 
+        #     return
     
 def checkDateFromWeekAndDay() -> None:
     cls()
     print("\nType a week number and a day number (1 for Monday, 7 for Sunday), converts to a date.")
     while True:
         week = input("Enter week number (leave blank to quit): ")
+        # Exit to main menu
         if week == "":
             return
+        # Prompt for new input if input is invalid
         if not week.isdigit():
             print("\nInvalid input - not a number.")
             continue
+
         week = int(week)
 
         while True:
@@ -146,7 +150,7 @@ def checkDateFromWeekAndDay() -> None:
         print(f"\nWeek {week}, Day {day}\n{date_str}, {getWeekday(date_obj)}\n")
 
 
-def main() -> None:
+def main() -> None: 
     while True:
         cls()
         displayMenu()
@@ -162,20 +166,19 @@ def main() -> None:
                 return
             if not (option >= 1 and option <= 3):
                 print("\nInvalid option. Please try again.")
-                continue            
+                continue
             break
 
-        # print() # Print an empty line
-        match option:
+        if option == 1:
             # Edit firstdate value
-            case 1:
-                editFirstDate()  
+            editFirstDate()  
+        elif option == 2:
             # Check week number of given date      
-            case 2:
-                checkWeekNumber()
+            checkWeekNumber()
+        elif option == 3:
             # Calculate date from given week number and day number
-            case 3:
-                checkDateFromWeekAndDay()
+            checkDateFromWeekAndDay()
+            
 
 # Check if file that stores date of first day of semester exists.
 try:

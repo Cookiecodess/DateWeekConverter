@@ -20,15 +20,22 @@ Hence this simple Python program is born. It contains three core functionalities
 git clone https://github.com/Cookiecodess/DateWeekConverter.git
 # Go to the cloned repo
 cd DateWeekConverter
-# Allow execution permissions for the Python scripts
-chmod +x start.py start-3.7.py
 ```
 
-To run the Python script, type one of the following, according to the version of Python3 you have.
+Now, I personally like to run the script as though it's a shell script, without using the `python3` command. If you're like me, do the following:
+```bash
+# Allow execution permissions for the Python scripts. 
+# You only need to execute this line once.
+chmod +x start.py
+```
+
+After this, skip to the [Before Use section](#before-use).
+
+If you'd like to keep things simple and don't mind typing a few more characters, just run the script with:
 
 ```bash
-./start.py # This requires Python 3.10+
-./start-3.7.py # This requires Python 3.7+
+# Run `start.py` with python3
+python3 start.py
 ```
 
 ### Windows
@@ -41,13 +48,12 @@ git clone https://github.com/Cookiecodess/DateWeekConverter.git
 # Go to the cloned repo
 cd DateWeekConverter
 # Run the Python script
-python3 start.py # This requires Python 3.10+. 
-#python3 start-3.7.py # This requires Python 3.7+. Both versions work completely the same. Use this if your Python3 version is lower than 3.10
+python3 start.py
 ```
 
 ## Before use
 
-IMPORTANT: This is for Linux/MacOS users. Windows users can ignore this section.
+IMPORTANT: This is for Linux/MacOS users who'd prefer executing the Python script as though it were a shell script (very possibly this is just me). Windows users can ignore this section.
 
 Use your preferred text editor (Notepad, VS Code, nano, etc.) to open ```start.py``` and change the first line.
 
@@ -78,7 +84,7 @@ of the path, right after the shebang.
 
 ## Usage/Configuration
 
-When you run ```start.py``` or ```start-3.7.py``` for the first time, 
+When you run ```start.py``` for the first time, 
 you should encounter this message:
 
 ```
