@@ -29,7 +29,7 @@ Now, I personally like to run the script as though it's a shell script, without 
 chmod +x start.py
 ```
 
-After this, skip to the [Before Use section](#before-use).
+After this, skip to the [Before Use](#before-use) section.
 
 If you'd like to keep things simple and don't mind typing a few more characters, just run the script with:
 
@@ -37,6 +37,8 @@ If you'd like to keep things simple and don't mind typing a few more characters,
 # Run `start.py` with python3
 python3 start.py
 ```
+
+Proceed to the [Usage/Configuration](#usageconfiguration) section.
 
 ### Windows
 
@@ -51,9 +53,11 @@ cd DateWeekConverter
 python3 start.py
 ```
 
+Proceed to the [Usage/Configuration](#usageconfiguration) section.
+
 ## Before use
 
-IMPORTANT: This is for Linux/MacOS users who'd prefer executing the Python script as though it were a shell script (very possibly this is just me). Windows users can ignore this section.
+IMPORTANT: This is for Linux/MacOS users who'd prefer executing the Python script as though it were a shell script (very possibly this is just me). Other users may ignore this section.
 
 Use your preferred text editor (Notepad, VS Code, nano, etc.) to open ```start.py``` and change the first line.
 
@@ -73,7 +77,7 @@ $ which python3
 There's a chance that your python3 path is exactly the same as the one already written in ```start.py```. 
 If so, you're done and ready to start using the program. If not, change the path to your python3 path. 
 **DO NOT REMOVE THE SHEBANG (```#!```).** It's the symbol that tells your shell interpreter that this 
-script should be executed using Python3. Also note that there is a slash (```/```) at the beginning 
+script should be executed with Python3. Also note that there is a slash (```/```) at the beginning 
 of the path, right after the shebang.
 
 ```python3
@@ -105,7 +109,7 @@ The default value of ```DATE_FORMAT```:
 DATE_FORMAT = "%d-%m-%Y" 
 ```
 
-For more on the format specifiers and what they signify, take a look at: <a target="_blank" href="https://www.w3schools.com/python/python_datetime.asp">Python Datetime - W3Schools</a>
+For more on the format specifiers and what they signify, take a look at: <a target="_blank" href="https://www.w3schools.com/python/python_datetime.asp">Python Datetime - W3Schools</a> 
 
 ### The rest
 
